@@ -18,8 +18,17 @@
     </div>
 
     <div class="contenedor-derecho">
-        
+        <audio class="audio" controls></audio>
     </div>
+
+    <form class="subir-musica" action="/canciones" method="POST" enctype="multipart/form-data">
+        <span><b>
+            Subir canción:
+        </b></span>
+        <input type="file" name="cancion">
+        <input type="submit" value="Subir">
+    </form>
+
     <script src="/js/main.js"></script>
     <script src="/jquery/jquery.min.js"></script>
 </body>

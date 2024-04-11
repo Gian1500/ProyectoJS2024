@@ -1,5 +1,8 @@
 
 $(function() {
+
+    var audio = $('audio');
+
     function cargarCanciones(){
         $.ajax({
             url:'/canciones'
@@ -8,11 +11,18 @@ $(function() {
             lista.empty();
             canciones.forEach(function(cancion) {
                 var nuevoElemento = $('<li class="cancion">'+ cancion.nombre+'</li>');
+                nuevoElemento.on('click', cancion, play)
                 nuevoElemento.appendTo(lista);
             })
         }).fail(function() {
             alert('no pude cargar las canciones :c');
         })
+    }
+
+    function play(evento) {
+        audio[0].pause();
+        audio.attr('src', '/canciones/' + evento.data.nombre);
+        audio[0].play();
     }
 
     cargarCanciones();
