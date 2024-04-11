@@ -39,21 +39,40 @@ app.get('/canciones/:nombre',function(req,res) {
     mediaserver.pipe(req,res,cancion);
 })
 
-app.post('/canciones', upload.single('cancion'), function(req,res) {
-    var archivoCanciones =  path.join(__dirname, 'canciones.json');
+app.post('/canciones', upload.single('cancion'), function(req, res) {
+    // Verificar si se ha enviado un archivo
+    if (!req.file) {
+        // Redirigir al usuario a index.html si no se envió ningún archivo
+        return res.redirect('/');
+    }
+
+    var archivoCanciones = path.join(__dirname, 'canciones.json');
     var nombre = req.file.originalname;
 
-    fs.readFile(archivoCanciones,'utf8', function(err, archivo) {
-        if(err) throw err;
+    fs.readFile(archivoCanciones, 'utf8', function(err, archivo) {
+        if (err) throw err;
         var canciones = JSON.parse(archivo);
-        canciones.push({nombre:nombre});
-
-        fs.writeFile(archivoCanciones, JSON.stringify(canciones), function(err){
-            if(err) throw err;
-            res.sendFile(path.join(__dirname,'index.html'));
-        })
+        
+        // Verificar si la canción ya existe en el archivo
+        var cancionExistente = canciones.find(function(cancion) {
+            return cancion.nombre === nombre;
+        });
+        
+        if (!cancionExistente) {
+            // Si la canción no existe, añadirla al archivo
+            canciones.push({ nombre: nombre });
+            fs.writeFile(archivoCanciones, JSON.stringify(canciones), function(err) {
+                if (err) throw err;
+                res.sendFile(path.join(__dirname, 'index.html'));
+            });
+        } else {
+            // Si la canción ya existe, responder con un mensaje de error
+            return res.redirect('/');
+        }
     });
 });
+
+
 
 app.listen(3000, function(){
     console.log('Aplicacion on');

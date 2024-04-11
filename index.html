@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductor</title>
+    <link rel="stylesheet" href="/css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 </head>
 <body>
     
     <div class="app">
-        <div class="contenedor-izq"></div>
-            <ul class="lista-canciones">
-                <li class="cancion">Cancion1</li>
-                <li class="cancion">Cancion2</li>
-            </ul>
-    </div>
+        <div class="contenedor-izq">
+           <img src="/resources/logo.png" alt="">
+        </div>
+        <ul class="lista-canciones">
+            <li class="cancion">Cancion1</li>
+            <li class="cancion">Cancion2</li>
+        </ul>
 
-    <div class="contenedor-derecho">
-        <audio class="audio" controls></audio>
-    </div>
-
-    <form class="subir-musica" action="/canciones" method="POST" enctype="multipart/form-data">
-        <span><b>
+        <div id="mp3_player">
+            <canvas id="analyzer_render"></canvas>
+            <div id="audio_box"></div>
+        </div>
+    
+        <div class="contenedor-der">
+            <audio class="audio" controls></audio>
+        </div>
+    
+        <form class="subir-musica" action="/canciones" method="POST" enctype="multipart/form-data">
             Subir canción:
-        </b></span>
-        <input type="file" name="cancion">
-        <input type="submit" value="Subir">
-    </form>
+            <label for="archivo" class="boton-subir">Seleccionar archivo</label>
+            <input type="file" id="archivo" name="cancion">
+            <span class="nombre-archivo"></span>
+            <input type="submit" value="Subir">
+        </form>
+    </div>
+
+
 
     <script src="/js/main.js"></script>
     <script src="/jquery/jquery.min.js"></script>
