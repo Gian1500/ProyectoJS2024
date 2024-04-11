@@ -1,5 +1,7 @@
 /* main.css */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 /* Estilo general */
 html,body {
     font-family: "Montserrat", sans-serif;
@@ -50,22 +52,15 @@ html,body {
     margin-top: 20px;
 }
 
-.audio {
-    /* width: 100%; */
+/* .audio {
     background-color: antiquewhite;
-    /* border: 1px solid #ccc; */
     border-radius: 10%;
-}
+} */
 
 .audio::-webkit-media-controls-panel {
     background-color: #D9D0B6;
     color: #333;
 }
-
-/* .audio::-webkit-media-controls-play-button {
-    background-color: #007bff;
-    color: #fff;
-} */
 
 .audio::-webkit-media-controls-play-button:hover {
     background-color: #0056b3;
@@ -89,8 +84,6 @@ html,body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: inline-block;
-    border-radius: 10px;
-    margin-bottom: 2%;
 }
 
 .subir-musica .boton-subir:hover {
@@ -141,3 +134,29 @@ div#mp3_player{
     background: #002D3C;
     float: left;
   }
+
+/* Define la animación */
+/* Define la animación */
+@keyframes movimientoFondo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Aplica la animación al fondo del body */
+.app, .subir-musica{
+    background: linear-gradient(-45deg, #ff5f6d, #ffc371, #5fdde5, #a09dfa);
+    background-size: 400% 400%;
+    animation: movimientoFondo 15s ease infinite;
+}
+
+@keyframes animacionTitulo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Aplica la animación al título */
+h1 {
+    animation: animacionTitulo 8s ease-in-out infinite;
+}
