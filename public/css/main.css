@@ -1,0 +1,162 @@
+/* main.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Estilo general */
+html,body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: antiquewhite;
+}
+
+.contenedor-izq {
+    width: 15%;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/007/643/250/non_2x/pulse-music-player-element-logo-template-electronic-music-equalizer-store-dj-nightclub-disco-audio-wave-logo-concept-multimedia-technology-themed-abstract-shape-vector.jpg');
+    background-size:cover;
+    background-position: center;
+    
+}
+
+.lista-canciones {
+    overflow-y: scroll;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-canciones .cancion {
+    padding: 10px;
+    border-bottom: 1px solid rgba(77, 70, 70, 0.664)0B6;
+    cursor: pointer;
+    background: #D9D0B6;
+}
+
+.lista-canciones .cancion:hover {
+    background-color: #e0e0e0;
+}
+
+.contenedor-der {
+    margin-top: 20px;
+}
+
+/* .audio {
+    background-color: antiquewhite;
+    border-radius: 10%;
+} */
+
+.audio::-webkit-media-controls-panel {
+    background-color: #D9D0B6;
+    color: #333;
+}
+
+.audio::-webkit-media-controls-play-button:hover {
+    background-color: #0056b3;
+}
+
+.subir-musica {
+    margin-top: 20px;
+    background-color: #D9D0B6;
+    border-radius: 10px;
+}
+
+.subir-musica input[type="file"] {
+    display: none; 
+}
+
+.subir-musica .boton-subir {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.subir-musica .boton-subir:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el nombre del archivo seleccionado */
+.subir-musica .nombre-archivo {
+    display: inline-block;
+    margin-left: 10px;
+    color: #333;
+    
+}
+
+.subir-musica input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 10px;
+}
+
+.subir-musica input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+div#mp3_player{
+    width: 500px;
+    height: 180px;
+    background: #000;
+    padding: 5px;
+    margin: 50px auto;
+  }
+
+  div#mp3_player > div > audio{
+    width: 500px;
+    background: #000;
+    float: left;
+  }
+
+  div#mp3_player > canvas {
+    width: 500px;
+    height: 150px;
+    background: #002D3C;
+    float: left;
+  }
+
+/* Define la animación */
+/* Define la animación */
+@keyframes movimientoFondo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Aplica la animación al fondo del body */
+.app, .subir-musica{
+    background: linear-gradient(-45deg, #ff5f6d, #ffc371, #5fdde5, #a09dfa);
+    background-size: 400% 400%;
+    animation: movimientoFondo 15s ease infinite;
+}
+
+@keyframes animacionTitulo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Aplica la animación al título */
+h1 {
+    animation: animacionTitulo 8s ease-in-out infinite;
+}
