@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductor</title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/resources/nota-musical.png" type="image/png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     
     <div class="app">
+
         <h1>Reproductor de Música</h1>
         <div class="contenedor-izq">
            <img src="" alt="">
         </div>
+
         <ul class="lista-canciones">
             <li class="cancion">Cancion1</li>
             <li class="cancion">Cancion2</li>
@@ -28,19 +31,33 @@
         <div class="contenedor-der">
             <audio class="audio" controls></audio>
         </div>
+     
     
         <form class="subir-musica" action="/canciones" method="POST" enctype="multipart/form-data">
-            Subir canción:
+             <div>Subir canción:</div>
             <label for="archivo" class="boton-subir">Seleccionar archivo</label>
             <input type="file" id="archivo" name="cancion">
-            <span class="nombre-archivo"></span>
             <input type="submit" value="Subir">
         </form>
-    </div>
+        
+        <div class="contenedor-der">
+            <b>
+                <span id="nombre-cancion-seleccionada"></span>
+            </b>
+        </div>
 
+        <div class="contenedor-der">
+            <div class="subir-musica" id="info-cancion">
+                <p>Selecciona una canción para eliminar</p>
+            </div>
+            <button id="borrar-musica">Borrar música</button>
+        </div>
+    </div>
 
 
     <script src="/js/main.js"></script>
     <script src="/jquery/jquery.min.js"></script>
+
 </body>
+
 </html>

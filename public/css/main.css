@@ -1,8 +1,6 @@
 /* main.css */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-/* Estilo general */
 html,body {
     font-family: "Montserrat", sans-serif;
     margin: 0;
@@ -52,10 +50,6 @@ html,body {
     margin-top: 20px;
 }
 
-/* .audio {
-    background-color: antiquewhite;
-    border-radius: 10%;
-} */
 
 .audio::-webkit-media-controls-panel {
     background-color: #D9D0B6;
@@ -114,6 +108,21 @@ html,body {
 }
 
 
+#borrar-musica {
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#borrar-musica:hover {
+    background-color: #cc0000;
+}
+
+
 div#mp3_player{
     width: 500px;
     height: 180px;
@@ -135,15 +144,13 @@ div#mp3_player{
     float: left;
   }
 
-/* Define la animación */
-/* Define la animación */
+
 @keyframes movimientoFondo {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Aplica la animación al fondo del body */
 .app, .subir-musica{
     background: linear-gradient(-45deg, #ff5f6d, #ffc371, #5fdde5, #a09dfa);
     background-size: 400% 400%;
@@ -156,7 +163,7 @@ div#mp3_player{
     100% { transform: scale(1); }
 }
 
-/* Aplica la animación al título */
+
 h1 {
     animation: animacionTitulo 8s ease-in-out infinite;
 }
